@@ -1,0 +1,15 @@
+client
+dev tun
+proto udp
+remote {{ server1.novpn_ip }} 1194
+resolv-retry infinite
+nobind
+persist-key
+persist-tun
+keepalive 10 120
+comp-lzo
+cipher DES-CBC
+
+ca /etc/openvpn/cert/ca.crt
+cert /etc/openvpn/cert/{{ server2.name }}.crt
+key /etc/openvpn/cert/{{ server2.name }}.key
